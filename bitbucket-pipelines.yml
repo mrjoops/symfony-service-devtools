@@ -1,0 +1,31 @@
+image:
+  name: composer
+
+pipelines:
+  pull-requests:
+    '**':
+      - parallel:
+        - step:
+            caches:
+              - composer
+            name: Run mess detector
+            script:
+              - make md
+        - step:
+            caches:
+              - composer
+            name: Run code sniffer
+            script:
+              - make sniff
+        - step:
+            caches:
+              - composer
+            name: Run static analysis
+            script:
+              - make stan
+        - step:
+            caches:
+              - composer
+            name: Check code style
+            script:
+              - make style
