@@ -1,6 +1,9 @@
 .PHONY: check
 check: md sniff stan style
 
+.PHONY: fix
+fix: fix-sniff fix-style
+
 .PHONY: fix-sniff
 fix-sniff: config public src vendor
 	./vendor/bin/phpcbf
