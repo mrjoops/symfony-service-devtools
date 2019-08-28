@@ -1,6 +1,6 @@
 {
     "name": "mrjoops/symfony-service",
-    "type": "metapackage",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -19,5 +19,5 @@
     "config": {
         "sort-packages": true
     },
-    "description": "A metapackage for all sort of tools, especially useful when building Symfony services."
+    "description": "A set of useful tools for building Symfony services."
 }
