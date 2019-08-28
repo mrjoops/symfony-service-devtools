@@ -1,4 +1,4 @@
-# mrjoops/symfony-service
+# mrjoops/symfony-service-devtools
 
 A set of useful tools for building [Symfony](https://symfony.com) services.
 To date, it includes:
@@ -16,12 +16,12 @@ To date, it includes:
 You can install it with [Composer](https://getcomposer.org).
 
 ```
-composer require --dev mrjoops/symfony-service
+composer require --dev mrjoops/symfony-service-devtools
 ```
 
 ## Prerequisites
 
-If you use Symfony Flex, you can safely jump to the [Usage](#Usage) section.
+If you use Symfony Flex, you can safely jump to the [Usage](#usage) section.
 Otherwise you must copy the following files in your project to enjoy all the features:
 
 * .php_cs.dist
@@ -32,7 +32,7 @@ Otherwise you must copy the following files in your project to enjoy all the fea
 * phpstan.neon.dist
 
 ```
-cp vendor/mrjoops/symfony-service/{.php_cs.dist,.phpcs.xml.dist,bitbucket-pipelines.yml,Makefile,phpmd.xml,phpstan.neon.dist} .
+cp vendor/mrjoops/symfony-service-devtools/{.php_cs.dist,.phpcs.xml.dist,bitbucket-pipelines.yml,Makefile,phpmd.xml,phpstan.neon.dist} .
 ```
 
 Don't forget to add the following lines in your `.gitignore` file:
@@ -48,7 +48,7 @@ Don't forget to add the following lines in your `.gitignore` file:
 
 Feel free to edit these files to fit your needs.
 
-## Usage
+## <a name="usage"></a>Usage
 
 You can run all the code quality tools with this command:
 
