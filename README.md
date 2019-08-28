@@ -16,12 +16,13 @@ To date, it includes:
 You can install it with [Composer](https://getcomposer.org).
 
 ```
-composer require mrjoops/symfony-service
+composer require --dev mrjoops/symfony-service
 ```
 
 ## Prerequisites
 
-You must copy the following files in your project to enjoy all the features:
+If you use Symfony Flex, you can safely jump to the [Usage](#Usage) section.
+Otherwise you must copy the following files in your project to enjoy all the features:
 
 * .php_cs.dist
 * .phpcs.xml.dist
@@ -29,6 +30,21 @@ You must copy the following files in your project to enjoy all the features:
 * Makefile
 * phpmd.xml
 * phpstan.neon.dist
+
+```
+cp vendor/mrjoops/symfony-service/{.php_cs.dist,.phpcs.xml.dist,bitbucket-pipelines.yml,Makefile,phpmd.xml,phpstan.neon.dist} .
+```
+
+Don't forget to add the following lines in your `.gitignore` file:
+
+```
+/.php_cs
+/.php_cs.cache
+/.phpcs.xml
+/phpstan.neon
+/test-reports/
+/vendor/
+```
 
 Feel free to edit these files to fit your needs.
 
