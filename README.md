@@ -8,6 +8,8 @@ To date, it includes:
   * PHP Code Sniffer
   * PHP CS Fixer
   * PHPStan
+* Test tools
+  * PHPUnit
 * A ready to go Docker environment
 * Configuration for CI tool Bitbucket Pipelines
 * a Makefile to ease interaction with these tools
@@ -28,6 +30,7 @@ Although both are optional, please ensure you have installed **docker-compose** 
 If you use Symfony Flex, you can safely jump to the [Usage](#usage) section.
 Otherwise you must copy the following files in your project to enjoy all the features:
 
+* .env.test
 * .php_cs.dist
 * .phpcs.xml.dist
 * bitbucket-pipelines.yml
@@ -36,9 +39,10 @@ Otherwise you must copy the following files in your project to enjoy all the fea
 * Makefile
 * phpmd.xml
 * phpstan.neon.dist
+* phpunit.xml.dist
 
 ```
-cp vendor/mrjoops/symfony-service-devtools/{.php_cs.dist,.phpcs.xml.dist,bitbucket-pipelines.yml,docker-compose.yml,Dockerfile,Makefile,phpmd.xml,phpstan.neon.dist} .
+cp vendor/mrjoops/symfony-service-devtools/{.env.test,.php_cs.dist,.phpcs.xml.dist,bitbucket-pipelines.yml,docker-compose.yml,Dockerfile,Makefile,phpmd.xml,phpstan.neon.dist,phpunit.xml.dist} .
 ```
 
 Don't forget to add the following lines in your `.gitignore` file:
@@ -49,6 +53,8 @@ Don't forget to add the following lines in your `.gitignore` file:
 /.phpcs.xml
 /.phpcs-cache
 /phpstan.neon
+/phpunit.xml
+.phpunit.result.cache
 /test-reports/
 /vendor/
 ```
@@ -87,6 +93,14 @@ make fix-sniff
 make fix-style
 ```
 
+### Testing tools
+
+You can run PHPUnit with this command:
+
+```
+make unit
+```
+
 ### Docker
 
 You can add services to the `docker-compose.yml` file.
@@ -100,7 +114,7 @@ The base Docker image used here is [mrjoops/ppm](https://cloud.docker.com/u/mrjo
 
 ## Continuous integration
 
-A configuration for [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines) exists, it will run all the checks on pull requests.
+A configuration for [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines) exists, it will run all checks and tests on pull requests.
 
 ## Opinionated advices
 

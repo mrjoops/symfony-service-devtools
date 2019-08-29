@@ -13,11 +13,11 @@ fix-style: config public src vendor
 	./vendor/bin/php-cs-fixer fix --verbose
 
 .PHONY: md
-md: config public src vendor
+md: config public src tests vendor
 	./vendor/bin/phpmd config,public,src text phpmd.xml
 
 .PHONY: sniff
-sniff: config public src test-reports vendor
+sniff: config public src tests test-reports vendor
 ifeq ($(CI), true)
 	./vendor/bin/phpcs --report=junit > test-reports/code-sniffer.xml
 else
@@ -25,7 +25,7 @@ else
 endif
 
 .PHONY: stan
-stan: config public src test-reports vendor
+stan: config public src tests test-reports vendor
 ifeq ($(CI), true)
 	./vendor/bin/phpstan analyse --error-format=junit > test-reports/static-analysis.xml
 else
@@ -33,11 +33,19 @@ else
 endif
 
 .PHONY: style
-style: config public src test-reports vendor
+style: config public src tests test-reports vendor
 ifeq ($(CI), true)
 	./vendor/bin/php-cs-fixer fix --dry-run --format=junit --verbose > test-reports/code-style.xml
 else
 	./vendor/bin/php-cs-fixer fix --dry-run --verbose
+endif
+
+.PHONY: unit
+unit: config public src tests test-reports vendor
+ifeq ($(CI), true)
+	./vendor/bin/phpunit --log-junit test-reports/unit.xml
+else
+	./vendor/bin/phpunit
 endif
 
 config:
@@ -47,6 +55,9 @@ public:
 	mkdir -p $@
 
 src:
+	mkdir -p $@
+
+tests:
 	mkdir -p $@
 
 test-reports:

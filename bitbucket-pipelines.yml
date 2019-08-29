@@ -29,3 +29,9 @@ pipelines:
             name: Check code style
             script:
               - make style
+        - step:
+            caches:
+              - composer
+            name: Run unit tests
+            script:
+              - make unit
