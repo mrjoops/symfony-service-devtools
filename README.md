@@ -17,7 +17,8 @@ To date, it includes:
 You can install it with [Composer](https://getcomposer.org).
 
 ```
-composer require --dev mrjoops/symfony-service
+composer config extra.symfony.allow-contrib true
+composer require --dev mrjoops/symfony-service-devtools
 ```
 
 ## Prerequisites
@@ -46,6 +47,7 @@ Don't forget to add the following lines in your `.gitignore` file:
 /.php_cs
 /.php_cs.cache
 /.phpcs.xml
+/.phpcs-cache
 /phpstan.neon
 /test-reports/
 /vendor/
