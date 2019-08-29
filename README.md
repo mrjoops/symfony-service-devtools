@@ -32,17 +32,17 @@ Otherwise you must copy the following files in your project to enjoy all the fea
 
 * .env.test
 * .php_cs.dist
-* .phpcs.xml.dist
 * bitbucket-pipelines.yml
 * docker-compose.yml
 * Dockerfile
 * Makefile
+* phpcs.xml.dist
 * phpmd.xml
 * phpstan.neon.dist
 * phpunit.xml.dist
 
 ```
-cp vendor/mrjoops/symfony-service-devtools/{.env.test,.php_cs.dist,.phpcs.xml.dist,bitbucket-pipelines.yml,docker-compose.yml,Dockerfile,Makefile,phpmd.xml,phpstan.neon.dist,phpunit.xml.dist} .
+cp vendor/mrjoops/symfony-service-devtools/{.env.test,.php_cs.dist,bitbucket-pipelines.yml,docker-compose.yml,Dockerfile,Makefile,phpcs.xml.dist,phpmd.xml,phpstan.neon.dist,phpunit.xml.dist} .
 ```
 
 Don't forget to add the following lines in your `.gitignore` file:
@@ -50,7 +50,7 @@ Don't forget to add the following lines in your `.gitignore` file:
 ```
 /.php_cs
 /.php_cs.cache
-/.phpcs.xml
+/phpcs.xml
 /.phpcs-cache
 /phpstan.neon
 /phpunit.xml
