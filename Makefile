@@ -43,9 +43,9 @@ endif
 .PHONY: unit
 unit: config public src tests test-reports vendor
 ifeq ($(CI), true)
-	./vendor/bin/phpunit --log-junit test-reports/unit.xml
+	./bin/phpunit --log-junit test-reports/unit.xml
 else
-	./vendor/bin/phpunit
+	./bin/phpunit
 endif
 
 config:
