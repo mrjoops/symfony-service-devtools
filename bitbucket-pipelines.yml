@@ -1,5 +1,5 @@
 image:
-  name: composer
+  name: mrjoops/ppm:7.3.2-ci
 
 pipelines:
   pull-requests:
