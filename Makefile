@@ -1,6 +1,10 @@
 .PHONY: check
 check: md sniff stan style
 
+.PHONY: dredd
+dredd: test-reports
+	dredd
+
 .PHONY: fix
 fix: fix-sniff fix-style
 
@@ -39,6 +43,9 @@ ifeq ($(CI), true)
 else
 	./vendor/bin/php-cs-fixer fix --dry-run --verbose
 endif
+
+.PHONY: test
+test: unit dredd
 
 .PHONY: unit
 unit: config public src tests test-reports vendor

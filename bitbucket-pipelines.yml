@@ -6,6 +6,10 @@ pipelines:
     '**':
       - parallel:
         - step:
+            name: Validate API implementation
+            script:
+              - make dredd
+        - step:
             caches:
               - composer
             name: Run mess detector

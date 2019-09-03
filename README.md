@@ -4,12 +4,13 @@ A set of useful tools for building [Symfony](https://symfony.com) services.
 To date, it includes:
 
 * Code quality tools with gently defaults
-  * PHPMD
-  * PHP Code Sniffer
-  * PHP CS Fixer
-  * PHPStan
-* Test tools
-  * PHPUnit
+  * [PHPMD](https://phpmd.org/)
+  * [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+  * [PHP CS Fixer](https://github.com/FriendsOfPhp/PHP-CS-Fixer)
+  * [PHPStan](https://github.com/phpstan/phpstan)
+* Testing tools
+  * [Dredd](https://dredd.org)
+  * [PHPUnit](https://phpunit.de/)
 * A ready to go Docker environment
 * Configuration for CI tool Bitbucket Pipelines
 * a Makefile to ease interaction with these tools
@@ -35,6 +36,7 @@ Otherwise you must copy the following files in your project to enjoy all the fea
 * bitbucket-pipelines.yml
 * docker-compose.yml
 * Dockerfile
+* dredd.yml
 * Makefile
 * phpcs.xml.dist
 * phpmd.xml
@@ -42,7 +44,7 @@ Otherwise you must copy the following files in your project to enjoy all the fea
 * phpunit.xml.dist
 
 ```
-cp vendor/mrjoops/symfony-service-devtools/{.env.test,.php_cs.dist,bitbucket-pipelines.yml,docker-compose.yml,Dockerfile,Makefile,phpcs.xml.dist,phpmd.xml,phpstan.neon.dist,phpunit.xml.dist} .
+cp vendor/mrjoops/symfony-service-devtools/{.env.test,.php_cs.dist,bitbucket-pipelines.yml,docker-compose.yml,Dockerfile,dredd.yml,Makefile,phpcs.xml.dist,phpmd.xml,phpstan.neon.dist,phpunit.xml.dist} .
 ```
 
 Don't forget to add the following lines in your `.gitignore` file:
@@ -95,11 +97,22 @@ make fix-style
 
 ### Testing tools
 
-You can run PHPUnit with this command:
+You can run all the testing tools with this command:
 
 ```
+make test
+```
+
+You can run them individually:
+
+```
+make dredd
 make unit
 ```
+
+#### A note about Dredd
+
+Since Dredd is a NodeJS tool, it is not installed with `mrjoops/symfony-service-devtools`. However it is included in the Docker image (see below) and ready to go!
 
 ### Docker
 
